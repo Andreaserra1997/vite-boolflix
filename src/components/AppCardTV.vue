@@ -1,9 +1,9 @@
 <script>
 export default {
   props: {
-    title: String,
+    name: String,
     original_language: String,
-    original_title: String,
+    original_name: String,
     vote_average: Number,
     poster_path: String,
   },
@@ -12,10 +12,10 @@ export default {
 
 <template>
   <div class="container">
-    <img :src="`https://image.tmdb.org/t/p/` + poster_path" />
-    <div>Titolo: {{ title }}</div>
+    <img :src="'https://image.tmdb.org/t/p/' + poster_path" />
+    <div>Titolo: {{ name }}</div>
     <div>Lingua originale: {{ original_language }}</div>
-    <div>Titolo Originale: {{ original_title }}</div>
+    <div>Titolo Originale: {{ original_name }}</div>
     <div>Voto: {{ vote_average }}</div>
   </div>
 </template>
