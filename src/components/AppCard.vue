@@ -12,7 +12,7 @@ export default {
 
 <template>
   <div class="container">
-    <img :src="`https://image.tmdb.org/t/p/` + poster_path" />
+    <img :src="`https://image.tmdb.org/t/p/w342` + poster_path" />
     <div>Titolo: {{ title }}</div>
     <div>Lingua originale: {{ original_language }}</div>
     <div>Titolo Originale: {{ original_title }}</div>
