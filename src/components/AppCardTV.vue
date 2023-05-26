@@ -14,7 +14,16 @@ export default {
   },
   methods: {
     convertVote() {
-      return Math.round(this.vote_average * 5) / 10;
+      const stars = [];
+      const rating = Math.round(this.vote_average * 5) / 10;
+      for (let i = 0; i < 5; i++) {
+        if (i < rating) {
+          stars.push(true);
+        } else {
+          stars.push(false);
+        }
+      }
+      return stars;
     },
   },
 };
@@ -22,14 +31,28 @@ export default {
 
 <template>
   <div class="container">
-    <img :src="'https://image.tmdb.org/t/p/w342' + poster_path" />
+    <img
+      :src="
+        poster_path
+          ? `https://image.tmdb.org/t/p/w342` + poster_path
+          : './none.png'
+      "
+    />
     <div>Titolo: {{ name }}</div>
     <div>
       Lingua originale: <LangFlag :iso="original_language" :squared="false" />
       <span class="lang-text">{{ original_language }}</span>
     </div>
     <div>Titolo Originale: {{ original_name }}</div>
-    <div>Voto: {{ convertVote() }}</div>
+    <div>
+      Voto:
+      <span v-for="(star, index) in convertVote()" :key="index">
+        <font-awesome-icon
+          :icon="['fas', 'star']"
+          :style="{ color: star ? 'yellow' : 'black' }"
+        />
+      </span>
+    </div>
   </div>
 </template>
 
