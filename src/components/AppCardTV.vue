@@ -59,6 +59,11 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 1rem;
+  max-width: calc(100% / 3);
+  flex: 0 1 auto;
+  img {
+    width: 100%;
+  }
 }
 .flag-icon-undefined {
   display: none;

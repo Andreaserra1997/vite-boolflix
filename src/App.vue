@@ -38,8 +38,30 @@ export default {
 </script>
 
 <template>
-  <AppHeader @searchRequest="requestFilm" />
+  <div class="top-bar">
+    <h1>BOOLFLIX</h1>
+    <AppHeader @searchRequest="requestFilm" />
+  </div>
   <AppMain />
 </template>
 
-<style></style>
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #434343;
+}
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: black;
+  h1 {
+    color: red;
+  }
+}
+</style>
